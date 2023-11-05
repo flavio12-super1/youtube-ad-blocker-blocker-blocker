@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "youtube-ad-blocker-blocker-blocker",
+  "version": "1.0",
+  "description": "fuck youtube",
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "permissions": ["tabs", "bookmarks", "activeTab", "scripting", "cookies"],
+  "host_permissions": ["http://localhost:4000/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["init.js"],
+      "css": ["newTab.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": ["https://*/*"],
+      "resources": []
+    }
+  ]
+}

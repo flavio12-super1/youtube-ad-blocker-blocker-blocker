@@ -1,0 +1,1 @@
+console.log("hello world from background sript "),chrome.tabs.onUpdated.addListener((function(e,o,r){o.url&&chrome.tabs.sendMessage(e,{message:"urlChanged",url:o.url})}));
