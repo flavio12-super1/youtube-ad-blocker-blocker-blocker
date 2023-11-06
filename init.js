@@ -20,8 +20,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       clearInterval(intervalId);
     }, 1000 * 60);
 
-    const myOverlayVideo = document.getElementById("myOverlayVideo");
-    myOverlayVideo.innerHTML = `  <iframe width="100%" height="720" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    if (myUrl.length > 24) {
+      const myOverlayVideo = document.getElementById("myOverlayVideo");
+      myOverlayVideo.innerHTML = `  <iframe width="100%" height="720" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+    } else {
+      myOverlayVideo.innerHTML = ``;
+    }
   }
 });
 
@@ -45,10 +49,13 @@ document.addEventListener("DOMContentLoaded", function () {
   setTimeout(function () {
     clearInterval(intervalId);
   }, 1000 * 60);
-
+  // if (currentUrl.length > 24) {
   const myOverlayVideo = document.createElement("div");
   myOverlayVideo.className = "myOverlayVideo";
   myOverlayVideo.id = "myOverlayVideo";
-  myOverlayVideo.innerHTML = `  <iframe width="100%" height="720" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  if (currentUrl.length > 24) {
+    myOverlayVideo.innerHTML = `  <iframe width="100%" height="720" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  }
   document.documentElement.appendChild(myOverlayVideo);
+  //   }
 });
