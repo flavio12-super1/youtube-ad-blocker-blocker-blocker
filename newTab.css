@@ -3,3 +3,10 @@
   width: 70%;
   left: 20px;
 }
+.myOverlayMiniVideo {
+  position: absolute;
+  width: 20%;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99999;
+}

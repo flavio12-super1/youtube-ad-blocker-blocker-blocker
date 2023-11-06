@@ -22,9 +22,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (myUrl.slice(0, 24) == "https://www.youtube.com/") {
       if (myUrl.length > 24) {
         const myOverlayVideo = document.getElementById("myOverlayVideo");
-        myOverlayVideo.innerHTML = `  <iframe width="100%" height="720" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+        myOverlayVideo.className = "myOverlayVideo";
+        myOverlayVideo.innerHTML = `  <iframe width="100%" height="720" id="myIframe" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
       } else {
-        myOverlayVideo.innerHTML = ``;
+        const myOverlayVideo = document.getElementById("myOverlayVideo");
+        myOverlayVideo.className = "myOverlayMiniVideo";
+        document.getElementById("myIframe").style.height = "300px";
       }
     }
   }
