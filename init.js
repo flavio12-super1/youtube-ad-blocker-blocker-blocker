@@ -78,10 +78,11 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
           document.getElementById("below").style.overflow = "scroll";
           document.getElementById("below").style.flexGrow = "1";
+          document.getElementById("below").style.marginTop = "25px";
           const myOverlayVideo = document.getElementById("myOverlayVideo");
           if (myOverlayVideo) {
             myOverlayVideo.className = "myOverlayVideo";
-            myOverlayVideo.innerHTML = `  <div class="pain">  <iframe width="100%" height="100%" id="myIframe" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+            myOverlayVideo.innerHTML = `<div class="outerBorderStyle"><div class="innerBorderStyle"></div></div>  <div><div class="outerBorderStyle2"><div class="innerBorderStyle2"></div></div><div class="pain"> <iframe width="100%" height="100%" id="myIframe" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> <div class="outerBorderStyle3"><div class="innerBorderStyle2"></div></div></div>  <div class="outerBorderStyleBottom"><div class="innerBorderStyle"></div></div>`;
           } else {
             // alert("adding vidoe video overlay");
             if (document.getElementById("myOverlayVideo")) {
@@ -95,7 +96,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
                 (myUrl.slice(24, 31) != "results" ||
                   myUrl.slice(24, 31) != "channel")
               ) {
-                myOverlayVideo.innerHTML = ` <div class="pain"> <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> </div>`;
+                myOverlayVideo.innerHTML = `<div class="outerBorderStyle"><div class="innerBorderStyle"></div></div>  <div><div class="outerBorderStyle2"><div class="innerBorderStyle2"></div></div><div class="pain"> <iframe width="100%" height="100%" id="myIframe" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> <div class="outerBorderStyle3"><div class="innerBorderStyle2"></div></div></div>  <div class="outerBorderStyleBottom"><div class="innerBorderStyle"></div></div>`;
               }
               // document.documentElement.appendChild(myOverlayVideo);
               //document.getElementById("player").appendChild(myOverlayVideo);
@@ -196,6 +197,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       document.getElementById("below").style.overflow = "scroll";
       document.getElementById("below").style.flexGrow = "1";
+      document.getElementById("below").style.marginTop = "25px";
+
       if (document.getElementById("myOverlayVideo")) {
         console.log("myOverlayVideo already exists");
       } else {
@@ -208,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
           (currentUrl.slice(24, 31) != "results" ||
             currentUrl.slice(24, 31) != "channel")
         ) {
-          myOverlayVideo.innerHTML = `  <div class="pain"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`;
+          myOverlayVideo.innerHTML = `<div class="outerBorderStyle"><div class="innerBorderStyle"></div></div>  <div><div class="outerBorderStyle2"><div class="innerBorderStyle2"></div></div><div class="pain"> <iframe width="100%" height="100%" id="myIframe" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> <div class="outerBorderStyle3"><div class="innerBorderStyle2"></div></div></div> <div class="outerBorderStyleBottom"><div class="innerBorderStyle"></div></div> `;
         }
         // document.documentElement.appendChild(myOverlayVideo);
         // Create a new div element

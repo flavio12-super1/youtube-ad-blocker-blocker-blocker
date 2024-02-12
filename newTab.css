@@ -1,3 +1,7 @@
+:root {
+  --image-url: url("https://i.kym-cdn.com/photos/images/original/002/491/281/6f1.png");
+}
+/*"https://media.defense.gov/2022/Dec/10/2003130372/-1/-1/0/221206-F-FD430-0009.PNG" "https://upload.wikimedia.org/wikipedia/en/thumb/e/e7/Steve_%28Minecraft%29.png/220px-Steve_%28Minecraft%29.png" */
 .myOverlayVideo {
   /* top: 50px;
   position: fixed;
@@ -17,11 +21,58 @@
   bottom: 20px;
   z-index: 99999; */
 }
+.outerBorderStyle {
+  width: 100%;
+  z-index: 9999;
+  position: absolute;
+  top: -20px;
+}
+.outerBorderStyle2 {
+  position: absolute;
+  width: 3%;
+  z-index: 999999;
+  height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.outerBorderStyle3 {
+  position: absolute;
+  width: 3%;
+  z-index: 999999;
+  height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+}
+.outerBorderStyleBottom {
+  width: 100%;
+  z-index: 9999;
+  position: absolute;
+  bottom: -40px;
+}
+.innerBorderStyle {
+  width: 100%;
+  background-image: var(--image-url);
+  transform: scaleX(-1);
+  height: 55px;
+  background-size: 3%;
+  background-repeat: repeat-x;
+}
+.innerBorderStyle2 {
+  background-repeat: repeat-y;
+  height: 100%;
+  width: 100%;
+  background-image: var(--image-url);
+  transform: scaleX(-1);
+  background-size: 100%;
+}
 .pain {
   width: 100%;
   position: absolute;
   height: 100%;
-  border: solid red 2px;
+  /* border: solid red 2px; */
 }
 
 .miniOverlay {
