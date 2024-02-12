@@ -20,36 +20,8 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       clearInterval(intervalId);
     }, 1000 * 60);
 
-    // alert("myurl: " + myUrl);
-
     if (myUrl.slice(0, 24) == "https://www.youtube.com/") {
       document.body.style.overflow = "scroll";
-
-      // if (document.getElementById("miniOverlay")) {
-      //   console.log("miniOverlay already exists");
-      //   if (document.getElementById("myOverlayVideo")) {
-      //     newDiv.appendChild(document.getElementById("myOverlayVideo"));
-      //   }
-      // } else {
-      //   var newDiv = document.createElement("div");
-      //   newDiv.className = "miniOverlay";
-      //   document.documentElement.appendChild(newDiv);
-
-      //   if (document.getElementById("myOverlayVideo")) {
-      //     newDiv.appendChild(document.getElementById("myOverlayVideo"));
-      //   }
-      // }
-
-      // document.getElementById("primary-inner").style.display = "flex";
-      // document.getElementById("primary-inner").style.flexDirection = "column";
-      // document.getElementById("primary-inner").style.height =
-      //   "calc(100vh - 100px)";
-
-      // document.getElementById("secondary-inner").style.height = "calc(100vh - 100px)";
-      // document.getElementById("secondary-inner").style.overflow = "scroll";
-
-      // document.getElementById("below").style.overflow = "scroll";
-      // document.getElementById("below").style.flexGrow = "1";
 
       if (myUrl.slice(0, 25) == "https://www.youtube.com/@") {
         // alert("this is not a video");
@@ -98,11 +70,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
               ) {
                 myOverlayVideo.innerHTML = `<div class="outerBorderStyle"><div class="innerBorderStyle"></div></div>  <div><div class="outerBorderStyle2"><div class="innerBorderStyle2"></div></div><div class="pain"> <iframe width="100%" height="100%" id="myIframe" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> <div class="outerBorderStyle3"><div class="innerBorderStyle2"></div></div></div>  <div class="outerBorderStyleBottom"><div class="innerBorderStyle"></div></div>`;
               }
-              // document.documentElement.appendChild(myOverlayVideo);
-              //document.getElementById("player").appendChild(myOverlayVideo);
-              // Create a new div element
-              // var newDiv = document.createElement("div");
-              // newDiv.textContent = "This is the new div!"; // You can customize the content as needed
 
               // // Get the parent node
               var parentContainer = document.getElementById(
@@ -129,9 +96,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 document.addEventListener("DOMContentLoaded", function () {
   var currentUrl = window.location.href;
   console.log(currentUrl, "currentUrl");
-  // alert("currentUrl: " + currentUrl);
   const videoId = currentUrl.slice(32, 43);
-  //   const resultText = currentUrl.slice(24, 31);
 
   let intervalId = setInterval(function () {
     const body = document.getElementById("player-container-outer");
@@ -152,39 +117,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (currentUrl.slice(0, 24) == "https://www.youtube.com/") {
     document.body.style.overflow = "scroll";
 
-    // if (document.getElementById("miniOverlay")) {
-    //   console.log("miniOverlay already exists");
-
-    //   if (document.getElementById("myOverlayVideo")) {
-    //     newDiv.appendChild(document.getElementById("myOverlayVideo"));
-    //   }
-    // } else {
-    //   var newDiv = document.createElement("div");
-    //   newDiv.className = "miniOverlay";
-    //   document.documentElement.appendChild(newDiv);
-
-    //   if (document.getElementById("myOverlayVideo")) {
-    //     newDiv.appendChild(document.getElementById("myOverlayVideo"));
-    //   }
-    // }
-
-    // document.getElementById("primary-inner").style.display = "flex";
-    // document.getElementById("primary-inner").style.flexDirection = "column";
-    // document.getElementById("primary-inner").style.height =
-    //   "calc(100vh - 100px)";
-
-    // document.getElementById("secondary-inner").style.height = "calc(100vh - 100px)";
-    // document.getElementById("secondary-inner").style.overflow = "scroll";
-    // document.getElementById("below").style.overflow = "scroll";
-    // document.getElementById("below").style.flexGrow = "1";
-    // document.getElementById("player").style.height = "auto";
-
     //alert("currentUrl second alert: " + currentUrl);
     if (currentUrl.slice(0, 25) == "https://www.youtube.com/@") {
       //  alert("this is not a video");
       console.log("this is not a video");
     } else if (currentUrl.length > 24) {
-      document.body.style.overflow = "hidden";
+      if (currentUrl.slice(0, 31) != "https://www.youtube.com/results") {
+        //  alert("this is not a video");
+
+        document.body.style.overflow = "hidden";
+      } else {
+        console.log("this is not a video");
+      }
+      // document.body.style.overflow = "hidden";
 
       document.getElementById("primary-inner").style.display = "flex";
       document.getElementById("primary-inner").style.flexDirection = "column";
@@ -213,10 +158,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ) {
           myOverlayVideo.innerHTML = `<div class="outerBorderStyle"><div class="innerBorderStyle"></div></div>  <div><div class="outerBorderStyle2"><div class="innerBorderStyle2"></div></div><div class="pain"> <iframe width="100%" height="100%" id="myIframe" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="World Of Hardstyle 2023" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div> <div class="outerBorderStyle3"><div class="innerBorderStyle2"></div></div></div> <div class="outerBorderStyleBottom"><div class="innerBorderStyle"></div></div> `;
         }
-        // document.documentElement.appendChild(myOverlayVideo);
-        // Create a new div element
-        // var newDiv = document.createElement("div");
-        // newDiv.textContent = "This is the new div!"; // You can customize the content as needed
 
         // Get the parent node
         var parentContainer = document.getElementById("player-container-outer");
